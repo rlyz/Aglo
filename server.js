@@ -16,6 +16,8 @@ app.use(express.urlencoded({
 }));
 
 const clientBuildPath = path.join(__dirname, '/client/build')
+app.use(express.static(clientBuildPath))
+
 
 // DB config
 const uri = process.env.mongoURI
