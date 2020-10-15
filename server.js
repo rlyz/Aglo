@@ -14,6 +14,8 @@ app.use(express.urlencoded({
     extended: true
 }));
 
+const clientBuildPath = path.join(__dirname, '/client/build')
+
 // DB config
 const uri = process.env.mongoURI
 const connection = mongoose.connection;
