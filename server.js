@@ -35,4 +35,4 @@ const usersRouter = require('./routes/user');
 app.use('/api', apiRouter)
 app.use('/users', usersRouter)
 
-app.listen(port, () => console.log(`server started on port: ${port}`));
+app.listen(port, (req, res) => console.log(`server started on port: ${port}`));
