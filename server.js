@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors')
 const mongoose = require('mongoose');
 const path = require("path");
+const cookieParser = require('cookie-parser');
 
 require('dotenv').config();
 
@@ -14,6 +15,7 @@ app.use(cors());
 app.use(express.urlencoded({
     extended: true
 }));
+app.use(cookieParser())
 
 const clientBuildPath = path.join(__dirname, '/client/build')
 

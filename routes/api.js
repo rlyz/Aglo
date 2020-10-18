@@ -7,6 +7,10 @@ router.route('/').get((req, res) => {
         .catch(err => res.status(400).json(err))
 })
 
+router.route('/googlelogin').post((req, res) => {
+    const { tokenId } = req.body
+})
+
 router.route('/add').post((req, res) => {
     const username = req.body.username;
 
