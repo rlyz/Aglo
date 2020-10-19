@@ -23,6 +23,7 @@ router.route('/add').post((req, res) => {
 router.route('/googlelogin').post((req, res) => {
     const { tokenId } = req.body
     client.verifyIdToken({ idToken: tokenId, audience: process.env.OAuth2 }).then(response => {
+        console.log(response.payload)
         const { email_verified, name, email } = response.payload;
         if (email_verified) {
             User.findOne({ email }).exec((err, user) => {

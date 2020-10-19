@@ -11,14 +11,12 @@ export default class editSub extends Component {
         const youtubeQueries = e.target.youtubeQueries.value;
         const twitter = e.target.twitter.value;
         const reddit = e.target.reddit.value;
-        fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&q=${youtubeQueries}&key=AIzaSyCBspJcn59nCeWMjCL8YgAmZ2cZd1AKMOg`)
+        fetch(`https://cors-anywhere.herokuapp.com/https://www.googleapis.com/youtube/v3/search?part=snippet&q=${youtubeQueries}&key=AIzaSyC7a7yjorBWX85JtYexyicEEH3BrsOAvTY`)
             .then(res => res.json())
             .then(res => {
                 const { items } = res;
-                const videoId = items.filter(items => {
-                    if (items.id.videoId) {
-                        return items.id.videoId
-                    }
+                const videoId = items.map(items => {
+                    return items.id.videoId
                 })
                 console.log(videoId)
 

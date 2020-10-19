@@ -18,11 +18,16 @@ export default class dashboard extends Component {
         if (this.state._id) {
             const { _id, name } = this.props.props
             axios.post('/api', { _id })
-                .then(res => this.setState({
-                    subReddits: res.data.reddit,
-                    twitter: res.data.twitter,
-                    youtube: res.data.youtube
-                }))
+                .then(res => {
+                    console.log(res.data)
+                    if (res.data) {
+                        this.setState({
+                            subReddits: res.data.reddit,
+                            twitter: res.data.twitter,
+                            youtube: res.data.youtube
+                        })
+                    }
+                })
         }
     }
     componentDidUpdate(previousProps) {

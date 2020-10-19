@@ -27,19 +27,6 @@ export default class youtube extends Component {
 }
 
 
-
-{/* <div className="col-lg-4 col-sm-6 mb-4">
-    <div className="card h-100">
-        <a target="_blank" rel="external" href={`https://www.reddit.com${this.props.data.permalink}`}>
-            <img className="card-img-top" src={this.props.data.thumbnail ? this.props.data.thumbnail : this.props.data.url_overridden_by_dest} width='348px' height='231px' />
-            <div className="card-body">
-                <h4 className="card-title">{this.props.data.title}</h4>
-            </div>
-        </a>
-    </div>
-</div> */}
-
-
 //  `https://www.googleapis.com/youtube/v3/activities?part=contentDetails&channelId=${item.snippet.resourceId.channelId}&maxResults=1&key=AIzaSyCBspJcn59nCeWMjCL8YgAmZ2cZd1AKMOg` \
 
 
