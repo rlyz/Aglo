@@ -2,16 +2,20 @@ import React, { Component } from 'react'
 import { Timeline } from 'react-twitter-widgets'
 
 export default class twitter extends Component {
+    constructor(props) {
+        super(props)
+    }
     render() {
         return (
             <Timeline
                 dataSource={{
-                    sourceType: 'profile',
-                    screenName: 'elonmusk'
+                    sourceType: 'list',
+                    id: `${this.props.list}`
+                    // screenName: `${this.props.account}`
                 }}
                 options={{
-                    height: '400',
-                    width: '300'
+                    height: '425',
+                    width: '350'
                 }}
             />
         )

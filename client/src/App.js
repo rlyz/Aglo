@@ -7,14 +7,18 @@ import DashBoard from './Components/DashBoard/dashboard';
 import PrivacyPolicy from './Components/Navbar/privacypolicy';
 import TermsOfService from './Components/Navbar/termsofservice';
 import About from './Components/Navbar/about';
-import GoogleLogin from 'react-google-login';
 import axios from 'axios';
+import Editsub from './Components/Navbar/editSub';
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 function App() {
+
   const [user, setUser] = useState('');
+  const [accessToken, setAccessToken] = useState('');
+  const [_id, setId] = useState('');
   const responseSuccessGoogle = (response) => {
     console.log(response)
-    setUser(response.profileObj.name)
+    setAccessToken(response.accessToken)
     axios({
       method: "POST",
       url: "/users/googlelogin",
@@ -22,33 +26,30 @@ function App() {
       withCredentials: true,
       credentials: 'include',
     }).then(response => {
-      console.log(response);
+      setUser(response.data.name);
+      setId(response.data._id)
     })
   }
-
+  const logout = (response) => {
+    setId('')
+    setUser('')
+    setAccessToken('')
+    console.log(response)
+  }
   const responseErrorGoogle = (response) => {
     console.log(response);
   }
-
+  const props = { user, _id }
   return (
     <>
       <Router>
-        <div className="container">
-          <Navbar />
-          <Route path="/" exact component={DashBoard} />
-          <Route path="/TermsofService" component={TermsOfService} />
-          <Route path="/PrivacyPolicy" component={PrivacyPolicy} />
-          <Route path="/About" component={About} />
-        </div>
+        <Navbar user={user} responseSuccessGoogle={responseSuccessGoogle} responseErrorGoogle={responseErrorGoogle} logout={logout} />
+        {_id ? <Route path="/" exact render={() => (< DashBoard props={props} accessToken={accessToken} />)} /> : <Route path="/" exact render={() => (< DashBoard props={props} accessToken={accessToken} />)} />}
+        <Route path="/TermsofService" render={() => (< TermsOfService user={user} />)} />
+        <Route path="/PrivacyPolicy" render={() => (< PrivacyPolicy user={user} />)} />
+        <Route path="/About" render={() => (< About user={user} />)} />
+        <Route path="/editsub" render={() => (<Editsub props={props} />)} />
       </Router>
-      <GoogleLogin
-        clientId="895280077366-s4pr20h3i27c64kfr39fioit1549l994.apps.googleusercontent.com"
-        buttonText="Login with Google"
-        onSuccess={responseSuccessGoogle}
-        onFailure={responseErrorGoogle}
-        cookiePolicy={'single_host_origin'}
-      />
-      <h1>{user}</h1>
     </>
 
   );

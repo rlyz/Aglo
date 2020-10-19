@@ -1,24 +1,57 @@
 const router = require('express').Router();
-let User = require('../models/api.model');
+let Api = require('../models/api.model');
 
-router.route('/').get((req, res) => {
-    User.find()
-        .then(users => res.json(users))
-        .catch(err => res.status(400).json(err))
-})
-
-router.route('/googlelogin').post((req, res) => {
-    const { tokenId } = req.body
+router.route('/').post((req, res) => {
+    console.log(req.body)
+    const user_id = req.body._id
+    Api.findOne({ user_id }).exec((err, user) => {
+        console.log(user)
+        if (user) {
+            console.log(user)
+            res.json(user)
+        } else {
+            res.json(err)
+        }
+    })
 })
 
 router.route('/add').post((req, res) => {
-    const username = req.body.username;
+    const { user_id, user_name, reddit, youtube, twitter, youtubeQueries } = req.body;
 
-    const newUser = new User({ username });
+    Api.findOne({ user_id }).exec((err, user) => {
+        if (err) {
+            return res.status(400).json({
+                error: "Something went wrong"
+            })
+        } else {
+            if (user) {
+                console.log(twitter)
+                user.reddit = reddit
+                youtube.forEach(item => {
+                    user.youtube.push(item)
+                })
+                user.twitter = twitter
+                user.youtubeQueries.push(youtubeQueries)
+                console.log(user)
+                user.save()
+                    .then((item) => { console.log(item); res.json(item) })
+                    .catch(err => {
+                        console.log(err);
+                        res.status(400).json(err)
+                    })
+            } else {
+                console.log('M IN ELSE')
+                const newAPI = new Api({ user_id, user_name, reddit, youtube, twitter });
 
-    newUser.save()
-        .then(() => res.json('User Added!'))
-        .catch(err => res.status(400).json(err))
+                newAPI.save()
+                    .then(() => res.json('User Data Updated!'))
+                    .catch(err => {
+                        console.log(err)
+                        res.status(400).json(err)
+                    })
+            }
+        }
+    })
 })
 
 module.exports = router

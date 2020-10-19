@@ -3,9 +3,12 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const apiSchema = new Schema({
-    username: { type: String, required: true },
-    youtube: { type: String },
-    twitter: { type: String },
+    user_id: { type: String, required: true },
+    user_name: { type: String, required: true },
+    reddit: [mongoose.Schema.Types.Mixed],
+    youtube: [mongoose.Schema.Types.Mixed],
+    twitter: [mongoose.Schema.Types.Mixed],
+    youtubeQueries: [mongoose.Schema.Types.Mixed]
 }, {
     timestamps: true,
 })
