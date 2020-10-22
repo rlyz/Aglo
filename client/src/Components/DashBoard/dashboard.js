@@ -59,7 +59,6 @@ export default class dashboard extends Component {
             const reddit = this.state.subReddits.map((item, index) => {
                 return <Reddit subReddit={item} key={index} />
             })
-            console.log(this.state.twitter)
             const twitter = this.state.twitter.map((item, index) => {
                 return <Twitter list={item} key={index} />
             })
