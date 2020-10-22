@@ -28,7 +28,9 @@ router.route('/add').post((req, res) => {
                 console.log(twitter)
                 user.reddit = reddit
                 youtube.forEach(item => {
-                    user.youtube.push(item)
+                    if (item) {
+                        user.youtube.push(item)
+                    }
                 })
                 user.twitter = twitter
                 user.youtubeQueries.push(youtubeQueries)

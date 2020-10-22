@@ -7,7 +7,7 @@ export default class form extends Component {
 
     render() {
         return (
-            <form className="container" action="/" onSubmit={(e) => this.props.onClickHandler(e, this.props._id)}>
+            <form className="container" action="/" onSubmit={(e) => this.props.onClickHandler(e, this.props._id, this.props.name)}>
                 <div className="row">
                     <div className="form-group col-md-4">
                         <label>Youtube Query</label>
