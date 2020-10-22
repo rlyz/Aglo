@@ -3,10 +3,6 @@
   "version": "1.0.0",
   "description": "News Aggregator",
   "main": "server.js",
-  "engines": {
-    "node": "12.18.3",
-    "npm": "6.14.6"
-  },
   "scripts": {
     "start": "node server.js",
     "server": "nodemon server.js",
