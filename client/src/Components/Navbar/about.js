@@ -3,8 +3,8 @@ import React, { Component } from 'react'
 export default class about extends Component {
     render() {
         return (
-            <div class="main">
-                <div class="article" id="content">
+            <div className="main">
+                <div className="article" id="content">
                     <div id="placeholders">
                         <h1>About</h1>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mauris rhoncus aenean vel elit. Et netus et malesuada fames ac turpis egestas sed tempus. Odio euismod lacinia at quis risus. Lacus vel facilisis volutpat est velit egestas dui id ornare. Imperdiet dui accumsan sit amet nulla facilisi. Nisl vel pretium lectus quam id leo in vitae turpis. Facilisi morbi tempus iaculis urna id volutpat. Vel risus commodo viverra maecenas. Vulputate dignissim suspendisse in est ante in nibh mauris. Quam nulla porttitor massa id neque aliquam vestibulum. Integer enim neque volutpat ac tincidunt vitae semper. Consectetur purus ut faucibus pulvinar elementum integer. Felis eget velit aliquet sagittis id. Et netus et malesuada fames ac turpis egestas. Gravida dictum fusce ut placerat.</p>

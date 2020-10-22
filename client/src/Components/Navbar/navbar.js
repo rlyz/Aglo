@@ -13,9 +13,9 @@ export default class navbar extends Component {
                 <Link to="/" className="navbar-brand">Aglo</Link>
                 <div className="collpase navbar-collapse">
                     <ul className="navbar-nav mr-auto">
-                        <li className="navbar-item">
+                        {this.props.user ? <li className="navbar-item">
                             <Link to="/" className="nav-link">Dashboard</Link>
-                        </li>
+                        </li> : null}
                         <li className="navbar-item">
                             <Link to="/About" className="nav-link">About</Link>
                         </li>

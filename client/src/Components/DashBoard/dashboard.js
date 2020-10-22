@@ -4,6 +4,7 @@ import Twitter from "./twitter";
 import Reddit from './reddit';
 import Medium from './medium';
 import axios from 'axios';
+import background from '../../Images/76.jpg'
 
 export default class dashboard extends Component {
     constructor(props) {
@@ -92,6 +93,11 @@ export default class dashboard extends Component {
                 </div>
             )
         }
-        return null
+        return (<>
+            <h1 style={{ display: 'flex', justifyContent: 'center', marginTop: '200px' }}>Aglo</h1>
+            <span style={{ display: 'flex', justifyContent: 'center' }}>Just another news aggregator</span>
+            <div style={{ backgroundImage: `url(${background})`, backgroundSize: 'contain', height: '630px' }}></div>
+            <a href='https://www.freepik.com/vectors/background'>Background vector created by ikatod - www.freepik.com</a>
+        </>)
     }
 }
