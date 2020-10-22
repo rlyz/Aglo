@@ -48,7 +48,7 @@ router.route('/googlelogin').post((req, res) => {
                 }
             })
         }
-    })
+    }).catch(err => res.status(400).json(err))
 })
 
 module.exports = router

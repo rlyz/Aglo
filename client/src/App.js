@@ -17,7 +17,6 @@ function App() {
   const [accessToken, setAccessToken] = useState('');
   const [_id, setId] = useState('');
   const responseSuccessGoogle = (response) => {
-    console.log(response)
     setAccessToken(response.accessToken)
     axios({
       method: "POST",

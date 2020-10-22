@@ -8,6 +8,7 @@ export default class navbar extends Component {
 
     }
     render() {
+        console.log(process.env)
         return (
             <nav className="navbar navbar-dark bg-dark navbar-expand-lg">
                 <Link to="/" className="navbar-brand">Aglo</Link>
@@ -32,11 +33,11 @@ export default class navbar extends Component {
                 </div>
                 <div to="/" className="navbar-brand">{this.props.user}</div>
                 {this.props.user ? <GoogleLogout
-                    clientId="895280077366-s4pr20h3i27c64kfr39fioit1549l994.apps.googleusercontent.com"
+                    clientId={process.env.REACT_APP_OAUTH}
                     buttonText="Logout"
                     onLogoutSuccess={this.props.logout}
                 /> : <GoogleLogin
-                        clientId="895280077366-s4pr20h3i27c64kfr39fioit1549l994.apps.googleusercontent.com"
+                        clientId={process.env.REACT_APP_OAUTH}
                         buttonText="Login with Google"
                         onSuccess={this.props.responseSuccessGoogle}
                         onFailure={this.props.responseErrorGoogle}
