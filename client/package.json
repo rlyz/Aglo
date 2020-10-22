@@ -9,6 +9,7 @@
     "axios": "^0.20.0",
     "bootstrap": "^4.5.3",
     "googleapis": "^61.0.0",
+    "node-sass": "^4.14.1",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-google-login": "^5.1.21",
@@ -19,6 +20,10 @@
     "react-youtube": "^7.12.0"
   },
   "proxy": "http://localhost:5000",
+  "engines": {
+    "node": "12.18.3",
+    "npm": "6.14.6"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
