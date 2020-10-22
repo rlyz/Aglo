@@ -14,6 +14,9 @@ export default class navbar extends Component {
                 <div className="collpase navbar-collapse">
                     <ul className="navbar-nav mr-auto">
                         <li className="navbar-item">
+                            <Link to="/" className="nav-link">Dashboard</Link>
+                        </li>
+                        <li className="navbar-item">
                             <Link to="/About" className="nav-link">About</Link>
                         </li>
                         <li className="navbar-item">
@@ -21,9 +24,6 @@ export default class navbar extends Component {
                         </li>
                         <li className="navbar-item">
                             <Link to="/PrivacyPolicy" className="nav-link">Privacy Policy</Link>
-                        </li>
-                        <li className="navbar-item">
-                            <Link to="/" className="nav-link">Dashboard</Link>
                         </li>
                         {this.props.user ? <li className="navbar-item">
                             <Link to="/editsub" className="nav-link">Edit Subscriptions</Link>

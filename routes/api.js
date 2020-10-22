@@ -25,14 +25,17 @@ router.route('/add').post((req, res) => {
             })
         } else {
             if (user) {
-                console.log(twitter)
-                user.reddit = reddit
+                if (reddit) {
+                    user.reddit.push(reddit)
+                }
                 youtube.forEach(item => {
                     if (item) {
                         user.youtube.push(item)
                     }
                 })
-                user.twitter = twitter
+                if (twitter) {
+                    user.twitter.push(twitter)
+                }
                 user.youtubeQueries.push(youtubeQueries)
                 console.log(user)
                 user.save()

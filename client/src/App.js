@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter, Route } from "react-router-dom";
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from "./Components/Navbar/navbar";
@@ -42,14 +42,14 @@ function App() {
   const props = { user, _id }
   return (
     <>
-      <Router>
+      <BrowserRouter>
         <Navbar user={user} responseSuccessGoogle={responseSuccessGoogle} responseErrorGoogle={responseErrorGoogle} logout={logout} />
         {_id ? <Route path="/" exact render={() => (< DashBoard props={props} accessToken={accessToken} />)} /> : <Route path="/" exact render={() => (< DashBoard props={props} accessToken={accessToken} />)} />}
         <Route path="/TermsofService" render={() => (< TermsOfService user={user} />)} />
         <Route path="/PrivacyPolicy" render={() => (< PrivacyPolicy user={user} />)} />
         <Route path="/About" render={() => (< About user={user} />)} />
         <Route path="/editsub" render={() => (<Editsub props={props} />)} />
-      </Router>
+      </BrowserRouter>
     </>
 
   );

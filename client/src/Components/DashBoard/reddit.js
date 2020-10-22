@@ -25,9 +25,9 @@ export default class Reddit extends Component {
             }
             )
             return (
-                <div className="row">
-                    {reddit}
-                </div>
+                <>
+                    { reddit}
+                </>
             )
         }
         return null

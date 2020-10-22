@@ -19,7 +19,6 @@ export default class dashboard extends Component {
             const { _id, name } = this.props.props
             axios.post('/api', { _id })
                 .then(res => {
-                    console.log(res.data)
                     if (res.data) {
                         this.setState({
                             subReddits: res.data.reddit,
@@ -59,25 +58,37 @@ export default class dashboard extends Component {
             const reddit = this.state.subReddits.map((item, index) => {
                 return <Reddit subReddit={item} key={index} />
             })
+            console.log(this.state.twitter)
             const twitter = this.state.twitter.map((item, index) => {
                 return <Twitter list={item} key={index} />
             })
             var youtube = this.state.youtube
             youtube.sort(() => Math.random() - 0.5)
-            youtube.length = 5
+            youtube.length = 8;
             var youtubeTrimmed = youtube.map((item, index) => {
                 return (
                     <Youtube accessToken={this.props.accessToken} videoId={item} />
                 )
             })
             return (
-                <div>
-                    <div className="row">
+                <div className="row">
+                    <div className="col-lg-4 col-sm-6 mb-4">
+                        <h2 class="card-title">Twitter</h2>
+                        {twitter}
+                    </div>
+                    <div className="col-lg-4 col-sm-6 mb-4">
+                        <h2 class="card-title">Reddit</h2>
+
+                        {reddit}
+
+                    </div>
+                    <div className="col-lg-4 col-sm-6 mb-4">
+                        <h2 class="card-title">Youtube</h2>
                         {youtubeTrimmed}
                     </div>
-                    {twitter}
-                    {reddit}
-                    <Medium />
+
+
+                    {/* <Medium /> */}
                 </div>
             )
         }

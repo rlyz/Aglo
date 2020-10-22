@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Timeline } from 'react-twitter-widgets'
+import { TwitterTimelineEmbed } from 'react-twitter-embed'
 
 export default class twitter extends Component {
     constructor(props) {
@@ -7,15 +7,14 @@ export default class twitter extends Component {
     }
     render() {
         return (
-            <Timeline
-                dataSource={{
-                    sourceType: 'list',
-                    id: `${this.props.list}`
-                    // screenName: `${this.props.account}`
-                }}
+            <TwitterTimelineEmbed
+
+                sourceType='list'
+                id={`${this.props.list}`}
+                // screenName: `${this.props.account}`
                 options={{
-                    height: '425',
-                    width: '350'
+                    height: '340',
+                    width: '550'
                 }}
             />
         )
