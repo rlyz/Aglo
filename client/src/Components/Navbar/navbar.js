@@ -8,7 +8,6 @@ export default class navbar extends Component {
 
     }
     render() {
-        console.log(process.env)
         return (
             <nav className="navbar navbar-dark bg-dark navbar-expand-lg">
                 <Link to="/" className="navbar-brand">Aglo</Link>
