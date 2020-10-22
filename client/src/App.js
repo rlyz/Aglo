@@ -26,9 +26,10 @@ function App() {
       withCredentials: true,
       credentials: 'include',
     }).then(response => {
+      console.log(response);
       setUser(response.data.name);
       setId(response.data._id)
-    })
+    }).catch(err => console.log(err))
   }
   const logout = (response) => {
     setId('')
